@@ -1,39 +1,61 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const pages = [
+  'src',
+  'src/shrikaton-4'
+];
 
 module.exports = {
+  entry: pages.reduce((acc, path) => ({
+      ...acc,
+      [path]: `./${path}/index.${path === 'src' ? 'html' : 'js'}`
+  }), {}),
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
+      },
+      {
+          test: /\.geojson$/,
+          use: {
+              loader: 'json-loader'
+          }
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
             options: { minimize: true }
           }
         ]
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: [
+            {
+                loader: 'style-loader'
+            },
+            {
+                loader: 'css-loader'
+            }
+        ]
       }
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
+    ...pages.map((path) => {
+        return new HtmlWebpackPlugin({
+            chunks: [path],
+            template: `${path}/index.html`,
+            filename: path === 'src' ?
+                'index.html' :
+                `${path.replace('src/', '')}/index.html`
+        });
+    }, {})
   ]
 };
