@@ -32,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/yandex-shri-fx-team/talks/issues"
   },
-  "homepage": "https://github.com/yandex-shri-fx-team/talks#readme"
+  "homepage": "https://github.com/yandex-shri-fx-team/talks#readme",
+  "dependencies": {}
 }
