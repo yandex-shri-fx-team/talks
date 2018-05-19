@@ -10,6 +10,9 @@ module.exports = {
       ...acc,
       [path]: `./${path}/index.${path === 'src' ? 'html' : 'js'}`
   }), {}),
+  devServer: {
+    contentBase: './public'
+  },
   module: {
     rules: [
       {
