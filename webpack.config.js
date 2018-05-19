@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const pages = [
   'src',
+  'src/example',
   'src/shrikaton-4'
 ];
 
