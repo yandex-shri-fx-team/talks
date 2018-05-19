@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/screen-16x10.css">
 	<link rel="stylesheet" href="/libs/highlight/styles/atom-one-light.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&coordOrder=longlat" type="text/javascript"></script>
 </head>
 <body class="shower list">
 	<header class="caption">
@@ -31,7 +32,105 @@
             </li>
             <li><a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap-layer" target="_blank">Grid Map Layer</a></li>
         </ul>
-	</section>
+    </section>
+
+	<section class="slide slide-cover" id="polygonmap-0">
+        <h2 class="center">Polygon Map</h2>
+    </section>
+
+	<section class="slide" id="polygonmap-1">
+        <h2>Что принимает на вход?</h2>
+        <ul>
+            <li>
+                Данные
+                <ul>
+                    <li>координаты полигонов</li>
+                    <li>координаты точек</li>
+                </ul>
+            <li>Опции для кастомизации</li>
+            <li>Инстанс карты (через метод <code>setMap</code>)</li>
+        </ul>
+    </section>
+
+	<section class="slide" id="polygonmap-2">
+        <h2>Что делает/может делать?</h2>
+        <ul>
+            <li>Расчет вхождения точки в полигон</li>
+            <li>Расчет палитры</li>
+            <li>Фильтрация</li>
+            <li>Стилизация</li>
+            <li>Обработка событий</li>
+            <li>Отрисовка объектов на карте</li>
+            <li>Легенда, балун</li>
+        </ul>
+    </section>
+
+	<section class="slide" id="polygonmap-example-1">
+        <h2>Пример 1</h2>
+        <pre>
+            <code class="js">ymaps.ready(() => {
+    const myMap = new ymaps.Map('map', { /* ... */ });
+    ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
+        const polygonmap = new Polygonmap({polygons, points});
+
+        polygonmap.setMap(myMap);
+    });
+});
+            </code>
+        </pre>
+    </section>
+
+	<section class="slide" id="polygonmap-example-1-map">
+        <div class="map" id="map-1"></div>
+    </section>
+
+    <section class="slide" id="polygonmap-example-2">
+        <h2>Пример 2 — Фильтр</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    filterEmptyPolygons: true
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-2-map">
+        <div class="map" id="map-2"></div>
+    </section>
+
+    <section class="slide" id="polygonmap-example-3">
+        <h2>Пример 3 — Кастомный фильтр</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    filter: function (object) {
+        return object.properties.pointsCount > 10;
+    }
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-3-map">
+        <div class="map" id="map-3"></div>
+    </section>
+
+
+    <section class="slide" id="polygonmap-example-4">
+        <h2>Пример 4 — Палитра</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    colorScheme: 'summer',
+    strokeWidth: 1,
+    strokeColor: '#666',
+    colorOpacity: 0.8
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-4-map">
+        <div class="map" id="map-4"></div>
+    </section>
 
 	<script src="/libs/shower/shower.min.js"></script>
 	<script src="/libs/highlight/highlight.pack.js"></script>

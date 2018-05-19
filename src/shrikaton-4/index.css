@@ -1,4 +1,5 @@
 .slide {
+    padding-top: 96px;
     font-weight: 600;
 }
 
@@ -19,10 +20,31 @@
 	color: #000000;
 }
 
-.slide-cover::after {
+.slide::after {
     visibility: hidden;
 }
 
 #cover {
     background-color: #fdcc2d;
+}
+
+.center {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide pre.small {
+  font-size: 14px;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
