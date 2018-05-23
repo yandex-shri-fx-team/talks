@@ -17,7 +17,6 @@
 
 	<section class="slide slide-cover" id="cover">
 		<h2>Визуализация данных на Яндекс.Картах</h2>
-		<p>ШРИ F(x)</p>
     </section>
 
 	<section class="slide" id="intro">
@@ -102,7 +101,7 @@
         <h2>Пример 3 — Кастомный фильтр</h2>
         <pre>
             <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
-    filter: function (object) {
+    filter(object) {
         return object.properties.pointsCount > 10;
     }
 });
@@ -113,7 +112,6 @@
     <section class="slide" id="polygonmap-example-3-map">
         <div class="map" id="map-3"></div>
     </section>
-
 
     <section class="slide" id="polygonmap-example-4">
         <h2>Пример 4 — Палитра</h2>
@@ -130,6 +128,81 @@
 
     <section class="slide" id="polygonmap-example-4-map">
         <div class="map" id="map-4"></div>
+    </section>
+
+    <section class="slide" id="polygonmap-example-5">
+        <h2>Пример 5 — Палитра</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    colorScheme: ['#4a148c', '#6a1b9a', '#7b1fa2', '#8e24aa', '#9c27b0', '#ab47bc', '#ba68c8', '#ce93d8', '#e1bee7', '#f3e5f5'],
+    colorRanges: 10,
+    colorOpacity: 0.8,
+    strokeWidth: 1,
+    strokeColor: '#666'
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-5-map">
+        <div class="map" id="map-5"></div>
+    </section>
+
+    <section class="slide" id="polygonmap-example-6">
+        <h2>Пример 6 — Учет веса точек</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    colorBy: 'weight',
+    colorByWeightType: 'middle'
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-6-map">
+        <div class="map" id="map-6"></div>
+    </section>
+
+    <section class="slide" id="polygonmap-example-7">
+        <h2>Пример 7 — Обработчики событий</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    onClick(e) {
+        alert('Работает!');
+    }
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-7-map">
+        <div class="map" id="map-7"></div>
+    </section>
+
+    <section class="slide" id="polygonmap-example-8">
+        <h2>Пример 8 — Отключение интерактивности</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    interactivity: false
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-9">
+        <h2>Пример 9 — Балун</h2>
+        <pre>
+            <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    balloonContent(object) {
+        return `<div><h3>Велопарковки Москвы</h3><div>${object.properties.NAME}</div><div>Количество парковок: <b>${object.properties.pointsCount}</b></div></div>`;
+    }
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide" id="polygonmap-example-9-map">
+        <div class="map" id="map-9"></div>
     </section>
 
 	<script src="/libs/shower/shower.min.js"></script>
