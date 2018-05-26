@@ -20,7 +20,7 @@
 }
 
 .slide::after {
-    visibility: hidden;
+    bottom: 16px;
 }
 
 #cover {
