@@ -41,16 +41,22 @@
 }
 
 .slide a {
-    color: #ff0000;
+    color: #0366d6;
 }
 
 .slide pre code:not(:only-child).mark {
     background: #fef2ca;
 }
+
 .slide code, .slide kbd, .slide mark, .slide samp {
     background: #fef2ca;
 }
+
 .slide pre mark.important {
+    background: #fdcc2d;
+}
+
+.progress {
     background: #fdcc2d;
 }
 
