@@ -173,22 +173,201 @@
 
 	<section class="slide">
         <h2>Наше решение</h2>
-    </section>
-
-	<section class="slide">
-        <h2>С чего начать?</h2>
+        <ul>
+            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap" target="_blank">Polygonmap</a></strong> — модуль, работает с любыми полигонами.</li>
+            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-regionmap" target="_blank">Regionmap</a></strong> — модуль, работает с модулем Регионы API Яндекс.Карт.</li>
+            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap" target="_blank">Gridmap</a></strong> — модуль, генерирует сетку.</li>
+            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap-layer" target="_blank">GridmapLayer</a></strong> — модуль, генерирует сетку с большим количеством ячеек (но с ограничениями).</li>
+        </ul>
     </section>
 
 	<section class="slide">
         <h2>Что может наш продукт?</h2>
+        <ul>
+            <li class="next">Расчет сетки (Gridmap и GridmapLayer).</li>
+            <li class="next">Расчет вхождения точки в полигон.</li>
+            <li class="next">Расчет палитры.</li>
+            <li class="next">Работа с данными (фильтрация, стилизация).</li>
+            <li class="next">Обработка событий.</li>
+            <li class="next">Отрисовка объектов на карте.</li>
+            <li class="next">Создание балунов с контентом.</li>
+            <li class="next">Создание легенды.</li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>С чего начать?</h2>
+        <ul>
+            <li class="next">Заходим на <a href="https://github.com/yandex-shri-fx-team" target="_blank">GitHub</a> и скачиваем нужный модуль (например, <a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap" target="_blank">Polygonmap</a>).</li>
+            <li class="next">Читаем <a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#readme" target="_blank">документацию</a>.</li>
+            <li class="next"><a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load-docpage/" target="_blank">Подключаем API Яндекс.Карт</a>.</li>
+            <li class="next"><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#loading" target="_blank">Подключаем модуль</a>.</li>
+            <li class="next"><a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/map-docpage/" target="_blank">Создаём карту</a>.</li>
+            <li class="next"><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#displaying-polygonmap-over-geographical-map" target="_blank">Инициализируем модуль</a>.</li>
+        </ul>
     </section>
 
 	<section class="slide">
         <h2>Пример</h2>
+        <pre>
+            <code class="js">ymaps.ready(() => {
+    const myMap = new ymaps.Map('map', { /* ... */ });
+    ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
+        const polygonmap = new Polygonmap({polygons, points});
+
+        polygonmap.setMap(myMap);
+    });
+});
+            </code>
+        </pre>
+    </section>
+
+	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres-example-1.png" alt="Dot map">
+        </figure>
     </section>
 
 	<section class="slide slide-cover">
         <h2 class="center">Техническая часть</h2>
+    </section>
+
+	<section class="slide">
+        <h2>Технологии</h2>
+        <p>Клиент:</p>
+        <ul>
+            <li><strong>API Яндекс.Карт</strong> — для работы с картой.</li>
+            <li><strong><a href="https://github.com/leaflet-extras/RTree" target="_blank">rtree</a></strong> (GridmapLayer) — для оптимизации производительности при работе с пиксельными координатами.</li>
+            <li><strong><a href="https://github.com/mikolalysenko/robust-point-in-polygon" target="_blank">robust-point-in-polygon</a></strong> — для расчета вхождения точки в полигон.</li>
+            <li><strong><a href="https://github.com/bpostlethwaite/colormap" target="_blank">colormap</a></strong> (Polygonmap) — готовые пресеты палитры.</li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>Технологии</h2>
+        <p>Инфраструктура:</p>
+        <ul>
+            <li><strong>npm</strong> — для управления зависимостями.</li>
+            <li><strong>babel</strong> — для транспиляции кода в ES5.</li>
+            <li><strong>webpack</strong> — для разработки и сборки.</li>
+            <li><strong>eslint</strong> — для линтинга кода.</li>
+            <li><strong>mocha</strong> — для написания тестов.</li>
+            <li><strong>istanbul</strong> — для генерации отчетов о покрытии кода тестами.</li>
+            <li><strong>jsdoc-to-markdown</strong> — для автоматической генерации документации</li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>Архитектура</h2>
+        <p>Два типа модулей:</p>
+        <ul>
+            <li>Модули, работающие только с геообъектами</li>
+            <li>Модули, работающие с тайлами и геообъектами</li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>Модули, работающие только с геообъектами</h2>
+        <ul style="display: inline-block; width: 49%; vertical-align: top;">
+            <li><strong>Polygonmap</strong>
+                <ul>
+                    <li>API Яндекс.Карт</li>
+                    <li><a href="https://github.com/mikolalysenko/robust-point-in-polygon" target="_blank">robust-point-in-polygon</a></li>
+                    <li><a href="https://github.com/bpostlethwaite/colormap" target="_blank">colormap</a></li>
+                </ul>
+            </li>
+            <li><strong>Regionmap</strong>
+                <ul>
+                    <li>API Яндекс.Карт</li>
+                    <li>Модуль Регионы</li>
+                    <li>Polygonmap</li>
+                </ul>
+            </li>
+        </ul>
+        <ul style="display: inline-block; width: 39%; vertical-align: top;">
+            <li><strong>Gridmap</strong>
+                <ul>
+                    <li>API Яндекс.Карт</li>
+                    <li>Polygonmap</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>Модули, работающие с тайлами и геообъектами</h2>
+        <ul>
+            <li><strong class="wiki-bold">GridmapLayer</strong>
+                <ul>
+                    <li>API Яндекс.Карт</li>
+                    <li><a href="https://github.com/mikolalysenko/robust-point-in-polygon" target="_blank">robust-point-in-polygon</a></li>
+                    <li><a href="https://github.com/leaflet-extras/RTree" target="_blank">rtree</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>Формат данных</h2>
+        <ul><li><a class="b-link wiki-ref wiki-ref wiki-ref_magiclink_yes i-bem wiki-ref_js_inited" href="http://geojson.org" target="_blank" title="Внешняя ссылка (откроется в новом окне)">GeoJSON</a> — порядок координат: longlat (долгота, широта).</li><li><a class="b-link wiki-ref wiki-ref wiki-ref_magiclink_yes i-bem wiki-ref_js_inited" href="https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ObjectManager-docpage/#add-param-objects" target="_blank" title="Внешняя ссылка (откроется в новом окне)">GeoJSONlike</a> — порядок координат: любой.</li></ul>
+    </section>
+
+	<section class="slide">
+        <h2>Пример</h2>
+        <pre>
+            <code class="js">{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [125.6, 10.1]
+        }
+    }]
+}
+            </code>
+        </pre>
+    </section>
+
+	<section class="slide">
+        <h2>Почему именно GeoJSON?</h2>
+        <ul>
+            <li>Стандарты — это хорошо.</li>
+            <li>Достаточно популярен.</li>
+            <li>С ним работает API Яндекс.Карт.</li>
+            <li>На GitHub прикольное превью для геоданных.</li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres-github.png" alt="GitHub">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <h2>Задачи</h2>
+        <ul>
+            <li>Расчет координат сетки</li>
+            <li>Расчет вхождения точки в полигон</li>
+            <li>Расчет палитры</li>
+            <li>Интерактивность</li>
+            <li>Перформанс и поддержка</li>
+        </ul>
+    </section>
+
+	<section class="slide">
+        <h2>Ссылки</h2>
+        <ul>
+            <li><strong>Polygonmap</strong> (<a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap" target="_blank">github</a>, <a href="https://yandex-shri-fx-team.github.io/ymaps-polygonmap" target="_blank">демо</a>)</li>
+            <li><strong>Regionmap</strong> (<a href="https://github.com/yandex-shri-fx-team/ymaps-regionmap" target="_blank">github</a>, <a href="https://yandex-shri-fx-team.github.io/ymaps-regionmap" target="_blank">демо</a>)</li>
+            <li><strong>Gridmap</strong> (<a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap" target="_blank">github</a>, <a href="https://yandex-shri-fx-team.github.io/ymaps-gridmap" target="_blank">демо</a>)</li>
+            <li><strong>GridmapLayer</strong> (<a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap-layer" target="_blank">github</a>, <a href="https://yandex-shri-fx-team.github.io/ymaps-gridmap-layer" target="_blank">демо</a>)</li>
+        </ul>
+    </section>
+
+	<section class="slide slide-cover">
+        <h2 class="center">Спасибо</h2>
     </section>
 
 	<script src="/talks/libs/shower/shower.min.js"></script>
