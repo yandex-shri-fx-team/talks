@@ -19,15 +19,13 @@
     </section>
 
 	<section class="slide">
-        <h2>Содержание</h2>
-        <ul>
-            <li>Задача</li>
-            <li>Продукт</li>
-            <li>Техническая часть</li>
-        </ul>
-
-        <!-- <p>QR-код</p> -->
-        <p><a href="https://yandex-shri-fx-team.github.io/talks/presentation">Ссылка на презентацию</a></p>
+        <h2>Демо</h2>
+        <a style="float: left;" href="http://qrcoder.ru" target="_blank">
+            <img src="http://qrcoder.ru/code/?https%3A%2F%2Fyandex-shri-fx-team.github.io%2Fymaps-gridmap-layer%2Fmain%2F&6&0" width="320" height="320" border="0" title="QR код">
+        </a>
+        <a style="float: right;" href="http://qrcoder.ru" target="_blank">
+            <img src="http://qrcoder.ru/code/?https%3A%2F%2Fyandex-shri-fx-team.github.io%2Fymaps-polygonmap%2Fmain%2F&6&0" width="320" height="320" border="0" title="QR код">
+        </a>
     </section>
 
 	<section class="slide slide-cover">
@@ -107,39 +105,26 @@
         </figure>
     </section>
 
-	<section class="slide">
-        <h2>Как решается сейчас?</h2>
-        <ul>
-            <li>Найти/вычислить координаты полигонов.</li>
-            <li>Создать геообъекты для полигонов.</li>
-            <li>Посчитать количество точек, попадающих в каждый из полигонов.</li>
-            <li>Вычислить и задать необходимый цвет заливки для каждого из полигонов.</li>
-            <li>Добавить обработчики событий.</li>
-            <li>Создать балуны с контентом для каждого из полигонов.</li>
-            <li>Создать легенду.</li></ul>
-    </section>
-
 	<section class="slide slide-cover">
         <h2 class="center">Продукт</h2>
     </section>
 
 	<section class="slide">
         <h2>Кто наш пользователь?</h2>
-        <ul style="display: block; position: relative">
-            <li class="next">Веб-мастер
-                <img style="position: absolute; top: 0; right: 0; height: 320px" src="/talks/pictures/pres2-webmaster.jpg" alt="Веб-мастер">
-            </li>
-        </ul>
     </section>
 
 	<section class="slide">
-        <h2>Кто наш пользователь?</h2>
-        <ul style="display: block; position: relative">
-            <li>Веб-мастер</li>
-            <li>Команда разработчиков
-                <img style="position: absolute; top: 0; right: 0; height: 320px" src="/talks/pictures/pres2-team.jpg" alt="Веб-мастер">
-            </li>
-        </ul>
+        <h2 class="white shadow">Веб-мастер</h2>
+        <figure>
+            <img class="cover cover-full-height" src="/talks/pictures/pres2-webmaster.jpg" alt="Webmaster">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <h2 class="white shadow">Команда разработчиков</h2>
+        <figure>
+            <img class="cover cover-full-width" src="/talks/pictures/pres2-team.jpg" alt="Team">
+        </figure>
     </section>
 
 	<section class="slide">
@@ -228,33 +213,29 @@
     </section>
 
 	<section class="slide">
-        <pre>
-            <code class="js">{
-    "type": "FeatureCollection",
-    "features": [{
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [125.6, 10.1]
-        }
-    }]
-}
-            </code>
-        </pre>
-    </section>
-
-	<section class="slide">
         <h2>Задачи</h2>
         <ul>
             <li class="next">Расчет сетки (Gridmap и GridmapLayer)</li>
             <li class="next">Расчет вхождения точки в полигон</li>
             <li class="next">Расчет палитры</li>
             <li class="next">Работа с данными (фильтрация, стилизация)</li>
-            <li class="next">Интерактивность</li>
             <li class="next">Отрисовка объектов на карте</li>
             <li class="next">Создание легенды</li>
-            <li class="next">Перформанс и поддержка</li>
+            <li class="next">Интерактивность</li>
         </ul>
+    </section>
+
+	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-gridmap-layer.gif" alt="GridmapLayer">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <h2>Перформанс</h2>
+        <figure>
+            <img src="/talks/pictures/pres2-performance-1.png" alt="Performance">
+        </figure>
     </section>
 
 	<section class="slide slide-cover">
