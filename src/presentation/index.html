@@ -157,39 +157,6 @@
     </section>
 
 	<section class="slide">
-        <h2>С чего начать?</h2>
-        <ul>
-            <li class="next">Заходим на <a href="https://github.com/yandex-shri-fx-team" target="_blank">GitHub</a> и скачиваем нужный модуль (например, <a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap" target="_blank">Polygonmap</a>).</li>
-            <li class="next">Читаем <a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#readme" target="_blank">документацию</a>.</li>
-            <li class="next"><a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load-docpage/" target="_blank">Подключаем API Яндекс.Карт</a>.</li>
-            <li class="next"><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#loading" target="_blank">Подключаем модуль</a>.</li>
-            <li class="next"><a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/map-docpage/" target="_blank">Создаём карту</a>.</li>
-            <li class="next"><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#displaying-polygonmap-over-geographical-map" target="_blank">Инициализируем модуль</a>.</li>
-        </ul>
-    </section>
-
-    <section class="slide">
-        <h2>Пример</h2>
-        <pre>
-            <code class="js">ymaps.ready(() => {
-    const myMap = new ymaps.Map('map', { /* ... */ });
-    ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
-        const polygonmap = new Polygonmap({polygons, points});
-
-        polygonmap.setMap(myMap);
-    });
-});
-            </code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <figure>
-            <img class="cover" src="/talks/pictures/pres2-example-1.png" alt="Polygonmap">
-        </figure>
-    </section>
-
-	<section class="slide">
         <h2>Технологии</h2>
         <p>Клиент:</p>
         <ul>
@@ -277,22 +244,6 @@
     </section>
 
 	<section class="slide">
-        <h2>GeoJSON</h2>
-        <ul>
-            <li>Стандарты — это хорошо.</li>
-            <li>Достаточно популярен.</li>
-            <li>С ним работает API Яндекс.Карт.</li>
-            <li>На GitHub прикольное превью для геоданных.</li>
-        </ul>
-    </section>
-
-	<section class="slide">
-        <figure>
-            <img class="cover" src="/talks/pictures/pres2-github.png" alt="GitHub">
-        </figure>
-    </section>
-
-	<section class="slide">
         <h2>Задачи</h2>
         <ul>
             <li class="next">Расчет сетки (Gridmap и GridmapLayer)</li>
@@ -304,6 +255,43 @@
             <li class="next">Создание легенды</li>
             <li class="next">Перформанс и поддержка</li>
         </ul>
+    </section>
+
+	<section class="slide slide-cover">
+        <h2 class="center">Техническая часть</h2>
+    </section>
+
+    <section class="slide">
+        <h2>С чего начать?</h2>
+        <ul>
+            <li class="next">Заходим на <a href="https://github.com/yandex-shri-fx-team" target="_blank">GitHub</a> и скачиваем нужный модуль (например, <a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap" target="_blank">Polygonmap</a>).</li>
+            <li class="next">Читаем <a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#readme" target="_blank">документацию</a>.</li>
+            <li class="next"><a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load-docpage/" target="_blank">Подключаем API Яндекс.Карт</a>.</li>
+            <li class="next"><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#loading" target="_blank">Подключаем модуль</a>.</li>
+            <li class="next"><a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/map-docpage/" target="_blank">Создаём карту</a>.</li>
+            <li class="next"><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap#displaying-polygonmap-over-geographical-map" target="_blank">Инициализируем модуль</a>.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Пример</h2>
+        <pre>
+            <code class="js">ymaps.ready(() => {
+    const myMap = new ymaps.Map('map', { /* ... */ });
+    ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
+        const polygonmap = new Polygonmap({polygons, points});
+
+        polygonmap.setMap(myMap);
+    });
+});
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-example-1.png" alt="Polygonmap">
+        </figure>
     </section>
 
 	<section class="slide">
