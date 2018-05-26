@@ -13,7 +13,13 @@ module.exports = {
       [path]: `./${path}/index.${path === 'src' ? 'html' : 'js'}`
   }), {}),
   devServer: {
-    contentBase: './public'
+    contentBase: './public',
+    proxy: {
+      '/talks': {
+        target: `http://localhost:8080`,
+        pathRewrite: { '^/talks': '' }
+      }
+    },
   },
   module: {
     rules: [

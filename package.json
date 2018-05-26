@@ -21,7 +21,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open --port 8080",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d dist"
   },
