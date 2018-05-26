@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pages = [
   'src',
   'src/example',
-  'src/shrikaton-4'
+  'src/shrikaton-4',
+  'src/presentation'
 ];
 
 module.exports = {
