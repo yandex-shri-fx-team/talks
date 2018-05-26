@@ -19,7 +19,13 @@
 	color: #000000;
 }
 
+.slide-cover::after {
+    visibility: hidden;
+}
+
 .slide::after {
+    left: auto;
+    right: 96px;
     bottom: 16px;
 }
 
