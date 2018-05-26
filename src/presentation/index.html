@@ -288,18 +288,17 @@
     </section>
 
     <section class="slide">
-            <h3><strong>Поменяем палитру и количество цветов</strong></h3>
-            <pre>
-            <code class="js">
-ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
-    const polygonmap = new Polygonmap({polygons, points}, {
-        colorScheme: 'summer',
-        colorRanges: 10
-    });
-    polygonmap.setMap(myMap);
+        <h3>Поменяем палитру и количество цветов</h3>
+        <pre>
+        <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
+const polygonmap = new Polygonmap({polygons, points}, {
+    colorScheme: 'summer',
+    colorRanges: 10
 });
-            </code>
-            </pre>
+polygonmap.setMap(myMap);
+});
+        </code>
+        </pre>
     </section>
     <section class="slide">
         <figure>
@@ -307,11 +306,9 @@ ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
         </figure>
     </section>
     <section class="slide">
-        <h3>
-            <strong>Добавим прозрачности</strong>
-        </h3>    
+        <h3>Добавим прозрачности</h3>
         <pre>
-                <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
     const polygonmap = new Polygonmap({polygons, points}, {
         colorScheme: 'summer',
         colorRanges: 10,
@@ -328,11 +325,9 @@ ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
         </figure>
     </section>
     <section class="slide">
-        <h3>
-            <strong>Изменим внешний вид границ</strong>
-        </h3>
+        <h3>Изменим внешний вид границ</h3>
         <pre>
-            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
     const polygonmap = new Polygonmap({polygons, points}, {
         colorScheme: 'summer',
         colorRanges: 10,
@@ -351,11 +346,9 @@ ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
         </figure>
     </section>
     <section class="slide">
-        <h3>
-            <strong>Передвинем легенду</strong>
-        </h3>
+        <h3>Передвинем легенду</h3>
         <pre>
-            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
     const polygonmap = new Polygonmap({polygons, points}, {
         colorScheme: 'summer',
         colorRanges: 10,
