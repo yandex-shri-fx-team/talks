@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html lang=en> <head> <title>SHRI F(x) Talks — Yandex Maps API Data Visualization</title> <meta charset=utf-8> <meta http-equiv=x-ua-compatible content="ie=edge"> <meta name=viewport content="width=device-width,initial-scale=1"> <link rel=stylesheet href=styles/screen-16x10.css> <link rel=stylesheet href=libs/highlight/styles/atom-one-light.css> <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&coordOrder=longlat"></script> </head> <body class="shower list"> <header class=caption> <h1>Визуализация данных на Яндекс.Картах</h1> <p>ШРИ F(x)</p> </header> <section class="slide slide-cover" id=cover> <h2>Визуализация данных на Яндекс.Картах</h2> <p>ШРИ F(x)</p> </section> <section class=slide id=intro> <h2>Модули</h2> <ul> <li> <a href=https://github.com/yandex-shri-fx-team/ymaps-polygonmap target=_blank>Polygon Map</a> <ul> <li><a href=https://github.com/yandex-shri-fx-team/ymaps-regionmap target=_blank>Region Map</a></li> <li><a href=https://github.com/yandex-shri-fx-team/ymaps-gridmap target=_blank>Grid Map</a></li> </ul> </li> <li><a href=https://github.com/yandex-shri-fx-team/ymaps-gridmap-layer target=_blank>Grid Map Layer</a></li> </ul> </section> <section class="slide slide-cover" id=polygonmap-0> <h2 class=center>Polygon Map</h2> </section> <section class=slide id=polygonmap-1> <h2>Что принимает на вход?</h2> <ul> <li> Данные <ul> <li>координаты полигонов</li> <li>координаты точек</li> </ul> </li><li>Опции для кастомизации</li> <li>Инстанс карты (через метод <code>setMap</code>)</li> </ul> </section> <section class=slide id=polygonmap-2> <h2>Что делает/может делать?</h2> <ul> <li>Расчет вхождения точки в полигон</li> <li>Расчет палитры</li> <li>Фильтрация</li> <li>Стилизация</li> <li>Обработка событий</li> <li>Отрисовка объектов на карте</li> <li>Легенда, балун</li> </ul> </section> <section class=slide id=polygonmap-example-1> <h2>Пример 1</h2> <pre>
+<!DOCTYPE html> <html lang=en> <head> <title>SHRI F(x) Talks — Yandex Maps API Data Visualization</title> <meta charset=utf-8> <meta http-equiv=x-ua-compatible content="ie=edge"> <meta name=viewport content="width=device-width,initial-scale=1"> <link rel=stylesheet href=/styles/screen-16x10.css> <link rel=stylesheet href=/libs/highlight/styles/atom-one-light.css> <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&coordOrder=longlat"></script> </head> <body class="shower list"> <header class=caption> <h1>Визуализация данных на Яндекс.Картах</h1> <p>ШРИ F(x)</p> </header> <section class="slide slide-cover" id=cover> <h2>Визуализация данных на Яндекс.Картах</h2> </section> <section class=slide id=intro> <h2>Модули</h2> <ul> <li> <a href=https://github.com/yandex-shri-fx-team/ymaps-polygonmap target=_blank>Polygon Map</a> <ul> <li><a href=https://github.com/yandex-shri-fx-team/ymaps-regionmap target=_blank>Region Map</a></li> <li><a href=https://github.com/yandex-shri-fx-team/ymaps-gridmap target=_blank>Grid Map</a></li> </ul> </li> <li><a href=https://github.com/yandex-shri-fx-team/ymaps-gridmap-layer target=_blank>Grid Map Layer</a></li> </ul> </section> <section class="slide slide-cover" id=polygonmap-0> <h2 class=center>Polygon Map</h2> </section> <section class=slide id=polygonmap-1> <h2>Что принимает на вход?</h2> <ul> <li> Данные <ul> <li>координаты полигонов</li> <li>координаты точек</li> </ul> </li><li>Опции для кастомизации</li> <li>Инстанс карты (через метод <code>setMap</code>)</li> </ul> </section> <section class=slide id=polygonmap-2> <h2>Что делает/может делать?</h2> <ul> <li>Расчет вхождения точки в полигон</li> <li>Расчет палитры</li> <li>Фильтрация</li> <li>Стилизация</li> <li>Обработка событий</li> <li>Отрисовка объектов на карте</li> <li>Легенда, балун</li> </ul> </section> <section class=slide id=polygonmap-example-1> <h2>Пример 1</h2> <pre>
             <code class=js>ymaps.ready(() => {
     const myMap = new ymaps.Map('map', { /* ... */ });
     ymaps.modules.require(['Polygonmap'], (Polygonmap) => {
@@ -15,7 +15,7 @@
             </code>
         </pre> </section> <section class=slide id=polygonmap-example-2-map> <div class=map id=map-2></div> </section> <section class=slide id=polygonmap-example-3> <h2>Пример 3 — Кастомный фильтр</h2> <pre>
             <code class=js>const polygonmap = new Polygonmap({polygons, points}, {
-    filter: function (object) {
+    filter(object) {
         return object.properties.pointsCount > 10;
     }
 });
@@ -28,4 +28,38 @@
     colorOpacity: 0.8
 });
             </code>
-        </pre> </section> <section class=slide id=polygonmap-example-4-map> <div class=map id=map-4></div> </section> <script src=libs/shower/shower.min.js></script> <script src=libs/highlight/highlight.pack.js></script> <script>hljs.initHighlightingOnLoad()</script> <script type="text/javascript" src="../src/shrikaton-4.js"></script></body> </html> 
+        </pre> </section> <section class=slide id=polygonmap-example-4-map> <div class=map id=map-4></div> </section> <section class=slide id=polygonmap-example-5> <h2>Пример 5 — Палитра</h2> <pre>
+            <code class=js>const polygonmap = new Polygonmap({polygons, points}, {
+    colorScheme: ['#4a148c', '#6a1b9a', '#7b1fa2', '#8e24aa', '#9c27b0', '#ab47bc', '#ba68c8', '#ce93d8', '#e1bee7', '#f3e5f5'],
+    colorRanges: 10,
+    colorOpacity: 0.8,
+    strokeWidth: 1,
+    strokeColor: '#666'
+});
+            </code>
+        </pre> </section> <section class=slide id=polygonmap-example-5-map> <div class=map id=map-5></div> </section> <section class=slide id=polygonmap-example-6> <h2>Пример 6 — Учет веса точек</h2> <pre>
+            <code class=js>const polygonmap = new Polygonmap({polygons, points}, {
+    colorBy: 'weight',
+    colorByWeightType: 'middle'
+});
+            </code>
+        </pre> </section> <section class=slide id=polygonmap-example-6-map> <div class=map id=map-6></div> </section> <section class=slide id=polygonmap-example-7> <h2>Пример 7 — Обработчики событий</h2> <pre>
+            <code class=js>const polygonmap = new Polygonmap({polygons, points}, {
+    onClick(e) {
+        alert('Работает!');
+    }
+});
+            </code>
+        </pre> </section> <section class=slide id=polygonmap-example-7-map> <div class=map id=map-7></div> </section> <section class=slide id=polygonmap-example-8> <h2>Пример 8 — Отключение интерактивности</h2> <pre>
+            <code class=js>const polygonmap = new Polygonmap({polygons, points}, {
+    interactivity: false
+});
+            </code>
+        </pre> </section> <section class=slide id=polygonmap-example-9> <h2>Пример 9 — Балун</h2> <pre>
+            <code class=js>const polygonmap = new Polygonmap({polygons, points}, {
+    balloonContent(object) {
+        return `<div><h3>Велопарковки Москвы</h3><div>${object.properties.NAME}</div><div>Количество парковок: <b>${object.properties.pointsCount}</b></div></div>`;
+    }
+});
+            </code>
+        </pre> </section> <section class=slide id=polygonmap-example-9-map> <div class=map id=map-9></div> </section> <script src=/libs/shower/shower.min.js></script> <script src=/libs/highlight/highlight.pack.js></script> <script>hljs.initHighlightingOnLoad()</script> <script type="text/javascript" src="../src/shrikaton-4.js"></script></body> </html> 
