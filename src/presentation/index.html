@@ -274,7 +274,7 @@
     </section>
 
     <section class="slide">
-        <h2>Пример</h2>
+        <h2>Инициализация</h2>
         <pre>
             <code class="js">ymaps.ready(() => {
     const myMap = new ymaps.Map('map', { /* ... */ });
@@ -293,7 +293,204 @@
             <img class="cover" src="/talks/pictures/pres2-example-1.png" alt="Polygonmap">
         </figure>
     </section>
+    <section class="slide">
+        <h2 style="text-align: center">"А давайте поменяем"</h2>
+        <ul class="ul-no-dot center">
+            <li><input type="checkbox"><label for="">Цвета не нравятся и их мало</label></li>
+            <li><input type="checkbox"><label for="">Не видно карту под полигонами</label></li>
+            <li><input type="checkbox"><label for="">Границы слишком белые</label></li>
+            <li><input type="checkbox"><label for="">Легенда не в том углу</label></li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h2 class="center">"Ща, 5 сек"</h2>
+    </section>
 
+    <section class="slide">
+            <h3><strong>Поменяем палитру и количество цветов</strong></h3>
+            <pre>
+            <code class="js">
+ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+    const polygonmap = new Polygonmap({polygons, points}, {
+        colorScheme: 'summer',
+        colorRanges: 10
+    });
+    polygonmap.setMap(myMap);
+});
+            </code>
+            </pre>
+    </section>
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/demo-1.png" alt="Polygonmap">
+        </figure>
+    </section>
+    <section class="slide">
+        <h3>
+            <strong>Добавим прозрачности</strong>
+        </h3>    
+        <pre>
+                <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+    const polygonmap = new Polygonmap({polygons, points}, {
+        colorScheme: 'summer',
+        colorRanges: 10,
+        fillopacity: 0.7
+    });
+    polygonmap.setMap(myMap);
+});
+                </code>
+                </pre>
+    </section>
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/demo-2.png" alt="Polygonmap">
+        </figure>
+    </section>
+    <section class="slide">
+        <h3>
+            <strong>Изменим внешний вид границ</strong>
+        </h3>
+        <pre>
+            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+    const polygonmap = new Polygonmap({polygons, points}, {
+        colorScheme: 'summer',
+        colorRanges: 10,
+        fillopacity: 0.7,
+        strokeColor: '#666',
+        strokeWidth: 1
+    });
+    polygonmap.setMap(myMap);
+});
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/demo-3.png" alt="Polygonmap">
+        </figure>
+    </section>
+    <section class="slide">
+        <h3>
+            <strong>Передвинем легенду</strong>
+        </h3>
+        <pre>
+            <code class="js">ymaps.modules.require(['Polygonmap'], (Polygonmap) => { 
+    const polygonmap = new Polygonmap({polygons, points}, {
+        colorScheme: 'summer',
+        colorRanges: 10,
+        fillopacity: 0.7,
+        strokeColor: '#666',
+        strokeWidth: 1,
+        legendPosition: {top: 20, left: 20}
+    });
+    polygonmap.setMap(myMap);
+});
+            </code>
+            </pre>
+    </section>
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/demo-4.png" alt="Polygonmap">
+        </figure>
+    </section>
+    <section class="slide">
+        <h2 style="text-align: center">Well done</h2>
+        <ul class="ul-no-dot center">
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Цвета не нравятся и их мало</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Не видно карту под полигонами</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Границы слишком белые</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Легенда не в том углу</label>
+            </li>
+        </ul>
+    </section>
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/demo-5.png" alt="Polygonmap">
+        </figure>
+    </section>
+    <section class="slide">
+        <h2 style="text-align: center; text-decoration: line-through">Well done</h2>
+        <ul class="ul-no-dot center">
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Цвета не нравятся и их мало</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Не видно карту под полигонами</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Границы слишком белые</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Легенда не в том углу</label>
+            </li>
+            <li>
+                <input type="checkbox">
+                <label for="">Не нравится всплывающее окно</label>
+            </li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h3>
+            <strong>Изменим всплывающее окно</strong>
+        </h3>
+        <pre>
+                <code class="js">const polygonmap = new Polygonmap({polygons, points}, {
+    balloonContent(object) {
+        return `&lt;div&gt;
+            &lt;div&gt;Район: ${object.properties.NAME}&lt;/div&gt;
+            &lt;div&gt;
+                    ${object.properties.pointsCount} 🚴🚴🚴🚴
+            &lt;/div&gt;&lt;/div&gt;`;
+    }
+});
+                </code>
+                    </pre>
+    </section>
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/demo-6.png" alt="Polygonmap">
+        </figure>
+    </section>
+    <section class="slide">
+        <h2 style="text-align: center">Well done</h2>
+        <ul class="ul-no-dot center">
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Цвета не нравятся и их мало</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Не видно карту под полигонами</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Границы слишком белые</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Легенда не в том углу</label>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <label for="">Не нравится всплывающее окно</label>
+            </li>
+        </ul>
+    </section>
 	<section class="slide">
         <h2>Ссылки</h2>
         <ul>
