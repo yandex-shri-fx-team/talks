@@ -1,6 +1,5 @@
 .slide {
     padding-top: 96px;
-    font-weight: 600;
 }
 
 .slide-cover h2 {
@@ -41,7 +40,7 @@
 }
 
 .slide a {
-    color: #0366d6;
+    color: #ff0000;
 }
 
 .slide pre code:not(:only-child).mark {
@@ -54,6 +53,14 @@
 
 .slide pre mark.important {
     background: #fdcc2d;
+}
+
+.slide ul {
+    margin-left: 1em;
+}
+
+.slide ol li::before, .slide ul li::before {
+    color: #ff0000;
 }
 
 .progress {
