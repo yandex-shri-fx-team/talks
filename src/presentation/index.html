@@ -217,72 +217,46 @@
 
 	<section class="slide">
         <h2>Технологии</h2>
-        <p>Клиент:</p>
         <ul>
-            <li><strong>API Яндекс.Карт</strong> — для работы с картой.</li>
-            <li><strong><a href="https://github.com/leaflet-extras/RTree" target="_blank">rtree</a></strong> (GridmapLayer) — для оптимизации производительности при работе с пиксельными координатами.</li>
-            <li><strong><a href="https://github.com/mikolalysenko/robust-point-in-polygon" target="_blank">robust-point-in-polygon</a></strong> — для расчета вхождения точки в полигон.</li>
-            <li><strong><a href="https://github.com/bpostlethwaite/colormap" target="_blank">colormap</a></strong> (Polygonmap) — готовые пресеты палитры.</li>
-        </ul>
-    </section>
-
-	<section class="slide">
-        <h2>Технологии</h2>
-        <p>Инфраструктура:</p>
-        <ul>
-            <li><strong>npm</strong> — для управления зависимостями.</li>
-            <li><strong>babel</strong> — для транспиляции кода в ES5.</li>
-            <li><strong>webpack</strong> — для разработки и сборки.</li>
-            <li><strong>eslint</strong> — для линтинга кода.</li>
-            <li><strong>mocha</strong> — для написания тестов.</li>
-            <li><strong>istanbul</strong> — для генерации отчетов о покрытии кода тестами.</li>
-            <li><strong>jsdoc-to-markdown</strong> — для автоматической генерации документации</li>
+            <li><strong>Vanilla JS</strong></li>
+            <li><strong>API Яндекс.Карт</strong></li>
         </ul>
     </section>
 
 	<section class="slide">
         <h2>Архитектура</h2>
-        <ul style="display: inline-block; width: 49%; vertical-align: top;">
-            <li><strong>Polygonmap</strong>
-                <ul>
-                    <li>API Яндекс.Карт</li>
-                    <li><a href="https://github.com/mikolalysenko/robust-point-in-polygon" target="_blank">robust-point-in-polygon</a></li>
-                    <li><a href="https://github.com/bpostlethwaite/colormap" target="_blank">colormap</a></li>
-                </ul>
-            </li>
-            <li><strong>Regionmap</strong>
-                <ul>
-                    <li>API Яндекс.Карт</li>
-                    <li>Модуль Регионы</li>
-                    <li>Polygonmap</li>
-                </ul>
-            </li>
-        </ul>
-        <ul style="display: inline-block; width: 39%; vertical-align: top;">
-            <li><strong>Gridmap</strong>
-                <ul>
-                    <li>API Яндекс.Карт</li>
-                    <li>Polygonmap</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-
-	<section class="slide">
-        <h2>Архитектура</h2>
-        <ul>
-            <li><strong class="wiki-bold">GridmapLayer</strong>
-                <ul>
-                    <li>API Яндекс.Карт</li>
-                    <li><a href="https://github.com/mikolalysenko/robust-point-in-polygon" target="_blank">robust-point-in-polygon</a></li>
-                    <li><a href="https://github.com/leaflet-extras/RTree" target="_blank">rtree</a></li>
-                </ul>
-            </li>
-        </ul>
+        <figure>
+            <img src="/talks/pictures/arc.png" alt="arc">
+        </figure>
     </section>
 
 	<section class="slide">
         <h2>Алгоритмы</h2>
+        <ul>
+            <li>
+                bbox
+            </li>
+        </ul>
+
+        <div class="algo-pics">
+            <div>
+                <img src="/talks/pictures/algo1.png" alt="algo1">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Алгоритмы</h2>
+        <ul>
+            <li>
+                Трассировка луча
+            </li>
+        </ul>
+
+        <div class="algo-pics">
+            <img src="/talks/pictures/algo2.png" alt="algo2">
+            <img style="width: 45%; float: right" src="/talks/pictures/algo3.gif" alt="algo3">
+        </div>
     </section>
 
 	<section class="slide">
