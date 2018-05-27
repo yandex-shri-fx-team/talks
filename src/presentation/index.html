@@ -23,15 +23,6 @@
     </section>
 
 	<section class="slide">
-        <h2>Задача</h2>
-        <p>Сделать два модуля API Яндекс.Карт для визуализации геоданных:</p>
-        <ul>
-            <li><strong>Региональная инфографика</strong> — вид визуализации, которая отображает интенсивность показателя для административных зон (стран, штатов, городов, районов, кварталов).</li>
-            <li><strong>Grid map</strong> (cетчатая карта) — вид визуализации данных, когда карта делится на ячейки в форме гексагонов, квадратов, кругов и тд.</li>
-        </ul>
-    </section>
-
-	<section class="slide">
         <h2>Что такое визуализация?</h2>
         <figure>
             <blockquote>
@@ -95,36 +86,84 @@
         </figure>
     </section>
 
+	<section class="slide">
+        <h2>Задача</h2>
+        <ul>
+            <li><strong>Региональная инфографика</strong></li>
+            <li><strong>Cетчатая карта</li>
+        </ul>
+    </section>
+
 	<section class="slide slide-cover">
         <h2 class="center">Продукт</h2>
     </section>
 
 	<section class="slide">
-        <h2>Кто наш пользователь?</h2>
+        <h2>Решение</h2>
+        <ul>
+            <li><strong>Polygonmap</strong> — работает с любыми полигонами.</li>
+            <li><strong>Regionmap</strong> — работает с модулем Регионы API Яндекс.Карт.</li>
+            <li><strong>Gridmap</strong> — генерирует сетку.</li>
+        </ul>
     </section>
 
 	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-example-1.png" alt="Polygonmap">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-example-2.png" alt="Regionmap">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-example-3.png" alt="Gridmap">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <h2>Фичи</h2>
+        <ul>
+            <li>Расчет сетки (Gridmap и GridmapLayer)</li>
+            <li>Расчет вхождения точки в полигон</li>
+            <li>Расчет палитры</li>
+            <li>Работа с данными (фильтрация, стилизация)</li>
+            <li>Отрисовка объектов на карте</li>
+            <li>Создание легенды</li>
+            <li>Интерактивность</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-gridmap-layer.gif" alt="GridmapLayer">
+        </figure>
+    </section>
+
+	<section class="slide">
+        <h2>Кто наш пользователь?</h2>
+        <ul>
+            <li>Веб-мастер</li>
+            <li>Команда разработчиков</li>
+        </ul>
+    </section>
+
+    <section class="slide">
         <h2 class="white shadow">Веб-мастер</h2>
         <figure>
             <img class="cover cover-full-height" src="/talks/pictures/pres2-webmaster.jpg" alt="Webmaster">
         </figure>
     </section>
 
-	<section class="slide">
+    <section class="slide">
         <h2 class="white shadow">Команда разработчиков</h2>
         <figure>
             <img class="cover cover-full-width" src="/talks/pictures/pres2-team.jpg" alt="Team">
         </figure>
-    </section>
-
-	<section class="slide">
-        <h2>Наше решение</h2>
-        <ul>
-            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-polygonmap" target="_blank">Polygonmap</a></strong> — модуль, работает с любыми полигонами.</li>
-            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-regionmap" target="_blank">Regionmap</a></strong> — модуль, работает с модулем Регионы API Яндекс.Карт.</li>
-            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap" target="_blank">Gridmap</a></strong> — модуль, генерирует сетку.</li>
-            <li class="next"><strong><a href="https://github.com/yandex-shri-fx-team/ymaps-gridmap-layer" target="_blank">GridmapLayer</a></strong> — модуль, генерирует сетку с большим количеством ячеек (но с ограничениями).</li>
-        </ul>
     </section>
 
 	<section class="slide slide-cover">
@@ -198,27 +237,12 @@
     </section>
 
 	<section class="slide">
+        <h2>Алгоритмы</h2>
+    </section>
+
+	<section class="slide">
         <h2>Формат данных</h2>
-        <ul><li><a class="b-link wiki-ref wiki-ref wiki-ref_magiclink_yes i-bem wiki-ref_js_inited" href="http://geojson.org" target="_blank" title="Внешняя ссылка (откроется в новом окне)">GeoJSON</a> — порядок координат: longlat (долгота, широта).</li><li><a class="b-link wiki-ref wiki-ref wiki-ref_magiclink_yes i-bem wiki-ref_js_inited" href="https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ObjectManager-docpage/#add-param-objects" target="_blank" title="Внешняя ссылка (откроется в новом окне)">GeoJSONlike</a> — порядок координат: любой.</li></ul>
-    </section>
-
-	<section class="slide">
-        <h2>Задачи</h2>
-        <ul>
-            <li class="next">Расчет сетки (Gridmap и GridmapLayer)</li>
-            <li class="next">Расчет вхождения точки в полигон</li>
-            <li class="next">Расчет палитры</li>
-            <li class="next">Работа с данными (фильтрация, стилизация)</li>
-            <li class="next">Отрисовка объектов на карте</li>
-            <li class="next">Создание легенды</li>
-            <li class="next">Интерактивность</li>
-        </ul>
-    </section>
-
-	<section class="slide">
-        <figure>
-            <img class="cover" src="/talks/pictures/pres2-gridmap-layer.gif" alt="GridmapLayer">
-        </figure>
+        <ul><li><a href="http://geojson.org" target="_blank">GeoJSON</a> (порядок координат: longlat, latlong).</li></ul>
     </section>
 
 	<section class="slide">
