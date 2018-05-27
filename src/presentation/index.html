@@ -88,6 +88,7 @@
 
 	<section class="slide">
         <h2>Задача</h2>
+        <p>Сделать два модуля API Яндекс.Карт для визуализации:</p>
         <ul>
             <li><strong>Региональная инфографика</strong></li>
             <li><strong>Cетчатая карта</li>
@@ -104,6 +105,7 @@
             <li><strong>Polygonmap</strong> — работает с любыми полигонами.</li>
             <li><strong>Regionmap</strong> — работает с модулем Регионы API Яндекс.Карт.</li>
             <li><strong>Gridmap</strong> — генерирует сетку.</li>
+            <li><strong>GridmapLayer</strong> — генерирует сетку на canvas-е.</li>
         </ul>
     </section>
 
@@ -126,21 +128,64 @@
     </section>
 
 	<section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-example-4.png" alt="GridmapLayer">
+        </figure>
+    </section>
+
+	<section class="slide">
         <h2>Фичи</h2>
         <ul>
             <li>Расчет сетки (Gridmap и GridmapLayer)</li>
             <li>Расчет вхождения точки в полигон</li>
             <li>Расчет палитры</li>
-            <li>Работа с данными (фильтрация, стилизация)</li>
-            <li>Отрисовка объектов на карте</li>
             <li>Создание легенды</li>
+            <li>Фильтрация</li>
+            <li>Стилизация</li>
             <li>Интерактивность</li>
+            <li>Создание балуна</li>
         </ul>
     </section>
 
     <section class="slide">
         <figure>
-            <img class="cover" src="/talks/pictures/pres2-gridmap-layer.gif" alt="GridmapLayer">
+            <img class="cover" src="/talks/pictures/pres2-feature-1.png" alt="Расчет сетки">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-feature-2.png" alt="Расчет вхождения точки в полигон">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-feature-3.png" alt="Расчет палитры">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-feature-4.png" alt="Создание легенды">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-feature-5.png" alt="Фильтрация">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-feature-6.png" alt="Стилизация">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="/talks/pictures/pres2-feature-7.gif" alt="Интерактивность">
         </figure>
     </section>
 
@@ -263,7 +308,7 @@
     </section>
     <section class="slide">
         <h2>О данных</h2>
-        
+
         <h3 style="text-align: center"><a class="b-link wiki-ref_js_inited" href="http://geojson.org" target="_blank" title="Внешняя ссылка (откроется в новом окне)">GeoJSON</a></h3>
         <div style="margin: auto; max-width: 350px;"><img src="/talks/pictures/geojsonicon.png" alt=""></div>
     </section>
@@ -484,8 +529,8 @@
                     height="320" border="0" title="QR код">
             </a>
             <h6>Gridmap</h6>
-        </div> 
-        
+        </div>
+
         <div style="display: inline-block; vertical-align: middle; width: 49%; text-align: center">
             <a style="width: 100%;" href="http://qrcoder.ru" target="_blank">
                 <img src="http://qrcoder.ru/code/?https%3A%2F%2Fyandex-shri-fx-team.github.io%2Fymaps-polygonmap%2Fmain%2F&6&0" width="320"
@@ -494,7 +539,7 @@
             <h6>Polygonmap</h6>
         </div>
     </section>
-    
+
     <section class="slide slide-cover">
         <h2>Спасибо</h2>
         <div style="position: absolute; bottom: 50px; left: 50px; width: 100%; line-height: 30px">
