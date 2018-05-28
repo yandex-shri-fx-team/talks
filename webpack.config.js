@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pages = [
   'src',
@@ -55,6 +56,14 @@ module.exports = {
                 loader: 'css-loader'
             }
         ]
+      },
+      {
+        test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3)$/,
+        use: [
+            {
+                loader: 'file-loader'
+            }
+        ]
       }
     ]
   },
@@ -67,6 +76,12 @@ module.exports = {
                 'index.html' :
                 `${path.replace('src/', '')}/index.html`
         });
-    }, {})
+    }, {}),
+    new CopyWebpackPlugin([
+        {
+            from: 'public',
+            to: '.'
+        }
+    ])
   ]
 };
